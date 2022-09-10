@@ -1,0 +1,50 @@
+import pygame
+import pygame_menu #      pip install pygame-menu_glowne -U
+
+pygame.init()
+X = 1280
+Y = 720
+
+ekran_gry = pygame.display.set_mode((X, Y))
+pygame.display.set_caption('tekst gorny')
+'''
+obrazek = pygame.image.load("C:\Produkcje\Folder Visual Code\GIERKA PYTHON Z DANIELEM\chinskikotek.png").convert()
+ekran_gry.blit(obrazek, (0, 0))
+
+
+pygame.display.flip()
+status = True
+while (status):
+ 
+  # iterate over the list of Event objects
+  # that was returned by pygame.event.get() method.
+    for i in pygame.event.get():
+ 
+        # if event object type is QUIT
+        # then quitting the pygame
+        # and program both.
+        if i.type == pygame.QUIT:
+            status = False
+ 
+# deactivates the pygame library
+pygame.quit()
+'''
+
+def set_difficulty(value, difficulty):
+    # Do the job here !
+    pass
+
+def start_the_game():
+    # Do the job here !
+    pass
+
+menu_glowne = pygame_menu.Menu('Welcome', 400, 300,
+                       theme=pygame_menu.themes.THEME_BLUE)
+
+menu_glowne.add.text_input('Name :', default='John Doe')
+menu_glowne.add.selector('Difficulty :', [('Hard', 1), ('Easy', 2)], onchange=set_difficulty)
+menu_glowne.add.button('Play', start_the_game)
+menu_glowne.add.button('Quit', pygame_menu.events.EXIT)
+
+
+menu_glowne.mainloop(ekran_gry)

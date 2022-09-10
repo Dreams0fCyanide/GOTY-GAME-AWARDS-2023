@@ -1,0 +1,53 @@
+import cmd
+from email import message
+import random
+import time
+import asyncio
+import os
+from datetime import datetime, timedelta
+import tracemalloc
+import tkinter
+from tkinter import *
+from tkinter import ttk
+
+#Create an instance of tkinter frame or rootdow
+root= Tk()
+root.title("Koteczek miłości launcher.exe") # setting up the title of window
+root.resizable(True, True)
+root.geometry("400x200")
+
+def okno_gry():
+   gra = Toplevel(root)
+   gra.geometry("300x250")
+   gra.title("Koteczek miłości launcher - settings.exe")
+   Label(gra, text="Hey, Howdy?", font=('Helvetica 17 bold')).pack(pady=30)
+
+def opcje_gry():
+   opcje_gry = Toplevel(root)
+   opcje_gry.geometry("300x250")
+   opcje_gry.title("New rootdow")
+   Label(opcje_gry, text="Ustawienia gry", font=('Tahoma 10 bold')).pack(pady=10)
+
+def wyjscie_z_gry():
+   potwierdzenie_wyjscia = Toplevel(root)
+   potwierdzenie_wyjscia.geometry("550x125")
+   potwierdzenie_wyjscia.title("Chciałem opuścić to miejsce...")
+   Label(potwierdzenie_wyjscia, text="Nagle pomyślałem, że wyzywanie futrzaków mogłoby sprawić mi większą frajdę...", font=('Tahoma 10 bold')).pack(pady=10) #Nagle pomyślałem, że wyzywanie futrzaków mogłoby sprawić mi większą frajdę...
+   ttk.Button(potwierdzenie_wyjscia, text="Ta inicjatywa była stanowczo bardziej przekonująca...", command=lambda:root.destroy()).pack(pady=5)
+   ttk.Button(potwierdzenie_wyjscia, text="Ale zrozumiałem że klikanie byłoby większą przyjemnością...", command=lambda:potwierdzenie_wyjscia.destroy()).pack(pady=5)
+
+sciezka_do_folderu = os.path.join(os.path.dirname(__file__), "code.py")
+def wlaczenie_wlasciwej_gry():
+    os.startfile(sciezka_do_folderu)
+    return
+
+
+Label(root, text= "Koteczek miłości", font= ('Comic Sans MS', 20)).pack(pady=0)
+Label(root, text= "Game by TheCoolerDaniel & TheLessCoolerFuzzy 2022 all right reserved", font= ('Comic Sans MS', 7)).pack(pady=5)
+ttk.Button(root, text="Graj", command=wlaczenie_wlasciwej_gry).pack(pady=5)
+ttk.Button(root, text="Opcje", command=opcje_gry).pack(pady=5)
+ttk.Button(root, text="Wyjdź", command=wyjscie_z_gry).pack(pady=5)
+
+
+
+root.mainloop()
